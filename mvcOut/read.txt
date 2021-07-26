@@ -1,0 +1,1 @@
+esta carpeta contiene los archivos para manejar el registro de usuarios desde fuera de la app, para luego poder loguearse, funciona pero aun no esta completo.

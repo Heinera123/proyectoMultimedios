@@ -1,0 +1,82 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.body-login {
+    background-color: rgba(121, 156, 196, 0.925);
+}
+
+.login .card {
+    width: 75%;
+}
+
+.login img {
+    width: 25%;
+}
+
+.login form {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+}
+
+
+/*//////////////Footer*/
+
+footer {
+    font-size: 20px;
+    margin-top: 3%;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer .fo:hover {
+    text-transform: 1.5;
+}
+
+
+/*pagina de inicio*/
+
+.FondoIni,
+body {
+    background-image: url(Recursos/fondoInicio.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+/*Admin User*/
+
+.adminUser {
+    background-color: rgba(71, 71, 124, 0.589);
+}
+
+.adminUser .container {
+    margin-top: 10%;
+}
+
+.adminUser .col {
+    padding: 2, 2, 2, 2;
+}
+
+
+/*form de registro*/
+
+.card-form {
+    background: #0F2027;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+.card-form button {
+    background: #141E30;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #243B55, #141E30);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #243B55, #141E30);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
