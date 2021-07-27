@@ -29,6 +29,18 @@
 					require_once('Controlador/autoController.php');
 					$controller = new autoController();
 					break;
+			case 'controller':
+				require_once('Controlador/controllerController.php');
+				$controller = new controllerController();
+				break;
+			case 'sucursales':
+				require_once('Controlador/sucursalesController.php');
+				$controller = new sucursalesController();
+				break;	
+			case 'relacionesMenu':
+				require_once('Controlador/relacionesMenuController.php');
+				$controller = new relacionesMenCon();
+				break;
 		}
 		$controller->{ $action }();
 	}
@@ -38,8 +50,7 @@
 						'rol'=>['index','register', 'update', 'delete'],
 						'menu'=>['index','register', 'update', 'delete'],
 						'controller'=>['index','register', 'update', 'delete'],
-						'relacionesMenu'=>['index'],
-						'auto'=>['index','register', 'update', 'delete']
+						'relacionesMenu'=>['index']
 						);
 	//verifica que el controlador enviado desde index.php esté dentro del arreglo controllers
 	if ( array_key_exists( $controller, $controllers ) ) {
