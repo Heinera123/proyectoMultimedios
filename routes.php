@@ -17,14 +17,18 @@
 				require_once('Controlador/menuController.php');
 				$controller = new menuController();
 				break;
-				case 'controller':
-					require_once('Controlador/controllerController.php');
-					$controller = new controllerController();
-					break;
-				case 'relacionesMenu':
-					require_once('Controlador/relacionesMenuController.php');
-					$controller = new relacionesMenCon();
-					break;
+			case 'controller':
+				require_once('Controlador/controllerController.php');
+				$controller = new controllerController();
+				break;
+			case 'sucursales':
+				require_once('Controlador/sucursalesController.php');
+				$controller = new sucursalesController();
+				break;	
+			case 'relacionesMenu':
+				require_once('Controlador/relacionesMenuController.php');
+				$controller = new relacionesMenCon();
+				break;
 		}
 		$controller->{ $action }();
 	}
@@ -34,6 +38,7 @@
 						'rol'=>['index','register', 'update', 'delete'],
 						'menu'=>['index','register', 'update', 'delete'],
 						'controller'=>['index','register', 'update', 'delete'],
+						'sucursales'=>['index','register', 'update', 'delete'],
 						'relacionesMenu'=>['index']
 						);
 	//verifica que el controlador enviado desde index.php esté dentro del arreglo controllers
