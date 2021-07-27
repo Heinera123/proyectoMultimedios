@@ -21,7 +21,6 @@ class menuController {
         $menu = new menuModelo(0, $_POST["nameMenu"], $_POST["idCatalogoMenu"], $_POST["createdAt"],"",
         $_POST["enabled"]);
         $respuesta = menuModelo::guardarmenu($menu);
-        var_dump($menu);
         echo '<script language="javascript">alert("'. $respuesta .'");
         window.location= "../Vista/inicio.php?controller=menu&action=register";</script>';					        
     }

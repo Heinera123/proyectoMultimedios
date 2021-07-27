@@ -43,6 +43,14 @@ if (isset($_SESSION['userName']) ) {
           <a class="nav-link dropdown-item" href="?controller=controller&action=index">Ver controladores</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" 
+        aria-haspopup="true" aria-expanded="false">Autos</a>
+        <div class="dropdown-menu bg-dark">
+          <a class="nav-link dropdown-item" href="?controller=auto&action=register">Registrar Autos</a>
+          <a class="nav-link dropdown-item" href="?controller=auto&action=index">Ver Autos</a>
+        </div>
+      </li>
       <li class="nav-item">
           <a class="nav-link" href="?controller=relacionesMenu&action=index">Relaciones menu</a>
       </li>

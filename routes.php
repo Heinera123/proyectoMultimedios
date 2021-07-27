@@ -25,6 +25,10 @@
 					require_once('Controlador/relacionesMenuController.php');
 					$controller = new relacionesMenCon();
 					break;
+				case 'auto':
+					require_once('Controlador/autoController.php');
+					$controller = new autoController();
+					break;
 		}
 		$controller->{ $action }();
 	}
@@ -34,7 +38,8 @@
 						'rol'=>['index','register', 'update', 'delete'],
 						'menu'=>['index','register', 'update', 'delete'],
 						'controller'=>['index','register', 'update', 'delete'],
-						'relacionesMenu'=>['index']
+						'relacionesMenu'=>['index'],
+						'auto'=>['index','register', 'update', 'delete']
 						);
 	//verifica que el controlador enviado desde index.php esté dentro del arreglo controllers
 	if ( array_key_exists( $controller, $controllers ) ) {
