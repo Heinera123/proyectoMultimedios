@@ -46,6 +46,14 @@ if (isset($_SESSION['userName']) ) {
       <li class="nav-item">
           <a class="nav-link" href="?controller=relacionesMenu&action=index">Relaciones menu</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" 
+        aria-haspopup="true" aria-expanded="false">Sucursal</a>
+        <div class="dropdown-menu bg-dark">
+          <a class="nav-link dropdown-item" href="?controller=sucursales&action=register">Registrar sucursal</a>
+          <a class="nav-link dropdown-item" href="?controller=sucursales&action=index">Ver sucursal</a>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link text-danger" href="../index.php">Salir</a>
       </li>
