@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION)) { session_start(); }
-require "../Modelo/autoModelo.php";
-require "../encrypt.php";
+require_once "../Modelo/autoModelo.php";
+require_once "../encrypt.php";
 class autoController {
   public function __construct(){}
   public function index(){
@@ -44,6 +44,9 @@ class autoController {
       $respuesta = autoModelo::updateauto($auto);
       echo '<script language="javascript">alert("'. $respuesta .'");
       window.location= "../Vista/inicio.php?controller=auto&action=index";</script>';					        
+    }
+    public static function devolverAutosHabilitados(){
+      return AutoModelo::ConsultarTodosautosHabilitados();
     }
 }
 //comprobaciones de las acciones a relizar, post desde form registro

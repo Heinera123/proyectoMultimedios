@@ -82,7 +82,6 @@ $usuarioConsultado = userController::devolverconsultarUser($_GET["id"]);
                                                     <?php
                                                     require_once "../Controlador/userController.php";
                                                     $data = userController::delverRoles();
-                                                    var_dump($data);
                                                     foreach ($data as $valores):
                                                         if($usuarioConsultado->idRol == $valores["idRol"]){
                                                             echo '<option selected value="'.$valores["idRol"].'">'.$valores["nameRol"].'</option>';

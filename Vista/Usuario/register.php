@@ -74,7 +74,6 @@ include_once "Componentes/nav.php";
                                                 <?php
                                                 require_once "../Controlador/userController.php";
                                                 $data = userController::delverRoles();
-                                                var_dump($data);
                                                 foreach ($data as $valores):
                                                 echo '<option value="'.$valores["idRol"].'">'.$valores["nameRol"].'</option>';
                                                 endforeach;
@@ -90,9 +89,9 @@ include_once "Componentes/nav.php";
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn-block btn-lg btn btn-dark mb-4">Registrar</button>
-                                    </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-block btn-lg btn btn-dark mb-4">Registrar</button>
+                                </div>
                             </form>
                         </div>
                     </div>

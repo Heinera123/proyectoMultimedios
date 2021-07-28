@@ -86,6 +86,26 @@ class UserModelo{
         }
        
     }
+    public static function ConsultarTodosUsuarioHabilitado(){
+        try {
+            $listaUsuarios =[];
+            $db=dbConexion::getConnect();
+            $select=$db->query('SELECT `idUser`, `cedula`, `nameUser`, `lastName`, 
+            `email`, `userName`, `idRol`, `createdAt`, `enable` FROM user order by `enable` DESC');
+            //asignarlo al objeto 
+            $UsersDb=$select->fetchAll();
+        
+            return $UsersDb;
+        } catch (\Throwable $th) {
+            $code = $th->getCode();
+            $message = $th->getMessage();
+            $file = $th->getFile();
+            $line = $th->getLine();
+            $mensajeError = "Exception thrown in $file on line $line: [Code $code] $message";            
+            ErrorModelo::agregarErroresBD($mensajeError, $file);
+        }
+       
+    }
     public static function ConsultarUsuario($userId){
         try {
             $db=dbConexion::getConnect();

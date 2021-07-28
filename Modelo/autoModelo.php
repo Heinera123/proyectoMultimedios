@@ -1,9 +1,8 @@
 <?php
 require_once "errorModelo.php";
 require_once "../dbConexion.php";
-require_once "../Modelo/autoModelo.php";
 //clase para administrar los autos
-class autoModelo{
+class AutoModelo{
     public $id;
     public $placa;
     public $marca;
@@ -81,6 +80,29 @@ class autoModelo{
         }
        
     }
+    public static function ConsultarTodosautosHabilitados($idAuto){
+        try {
+            $db=dbConexion::getConnect();
+            $query = ('SELECT `id`, `placa`, `marca`, `modelo`, 
+            `precio`, `enabled`, `created_at`, `update_at` FROM auto where `enabled` = 1 
+            or `id` = :idAuto');
+            $select=$db->Prepare($query);
+            // $stmt = $db->prepare($query);
+            $select -> bindParam('idAuto', $idAuto);
+            $select->execute();//Execute stmt
+            //asignarlo al objeto 
+            $autosDb=$select->fetchAll();
+            
+            return $autosDb;
+        } catch (\Throwable $th) {
+            $code = $th->getCode();
+            $message = $th->getMessage();
+            $file = $th->getFile();
+            $line = $th->getLine();
+            $mensajeError = "Exception thrown in $file on line $line: [Code $code] $message";            
+            ErrorModelo::agregarErroresBD($mensajeError, $file);
+        }       
+    }
     public static function Consultarauto($autoId){
         try {
             $db=dbConexion::getConnect();
@@ -131,6 +153,28 @@ class autoModelo{
         }
         return $re;
     }
+    public static function habilitarauto($id){
+        try {
+            $re = null;
+            $db = dbConexion::getConnect();
+            $query = 'UPDATE `auto` SET `enabled`= 1 WHERE 
+            `id` = :id';
+            $select = $db->prepare($query);
+            $select->bindValue ('id', $id);
+            $select->execute();
+            $re = "auto habilitado correctamente";
+            ErrorModelo::agregarBitacoraBD($query);
+        } catch (\Throwable $th) {
+            $code = $th->getCode();
+            $message = $th->getMessage();
+            $file = $th->getFile();
+            $line = $th->getLine();
+            $mensajeError = "Exception thrown in $file on line $line: [Code $code] $message";            
+            ErrorModelo::agregarErroresBD($mensajeError, $file);
+            $re = "auto no habilitado correctamente, intentelo de nuevo o contacte al administrador";
+        }
+        return $re;
+    }
     public static function updateauto(autoModelo $autoUpd ){
         try {
             $db = dbConexion::getConnect();
@@ -146,7 +190,6 @@ class autoModelo{
             $select->bindValue ('id', $autoUpd->id);
             $select->execute();
             ErrorModelo::agregarBitacoraBD($query);
-            var_dump($autoUpd);
             $re = "auto actualizado correctamente";
         } catch (\Throwable $th) {
             $code = $th->getCode();
